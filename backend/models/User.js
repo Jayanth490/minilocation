@@ -13,13 +13,12 @@ export const createUser = async (name, phoneNumber, lat, lng) => {
       longitude = EXCLUDED.longitude
     RETURNING *;
   `;
-
   try {
     const result = await pool.query(query, [name, phoneNumber, lat, lng]);
     console.log('✅ User created/updated:', result.rows[0]);
     return result.rows[0];
   } catch (error) {
-    console.error('❌ Database error:', error);
+    console.error('❌ Database error:', error.stack);  // Log the full error stack
     throw error;
   }
 };

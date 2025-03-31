@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import db from './config/db.js'; // Ensure the file extension is included
+import db from '../backend/config/db.js' // Correct import of the db module
+// Ensure the file extension is included
 import userRoutes from './routes/userRoutes.js'; // Ensure the file extension is included
 
 const app = express();

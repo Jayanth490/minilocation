@@ -1,15 +1,19 @@
 import express from 'express';
 import axios from 'axios';
+import cors from 'cors'; // Use import for consistency
 
-
+const app = express();
 const router = express.Router();
-const cors = require('cors');
+
 // ✅ Use CORS with the correct origin
-router.use(cors({
-  origin: 'https://locationtrack-omega.vercel.app',
-  methods: ['GET'],
+app.use(cors({
+  origin: [
+    'https://locationtrack-omega.vercel.app',
+    'http://localhost:3000',  // Ensure this is added
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // If you are dealing with cookies or sessions
+  credentials: true,
 }));
 
 // ✅ Reverse geocoding route
@@ -45,4 +49,6 @@ router.get('/reverse', async (req, res) => {
   }
 });
 
-module.exports = router;
+app.use('/api', router); // Register the router under the /api path
+
+export default app; // Use export default for ES modules

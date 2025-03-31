@@ -17,22 +17,27 @@ function LocationFilter() {
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 10);  // Clean up phone number input
+    setPhone(value);
+  };
+
   const handleSearch = async () => {
     if (!/^[0-9]{10}$/.test(phone)) {
       alert('❌ Please enter a valid 10-digit phone number');
       return;
     }
-  
+
     setLoading(true);
     setAddress('');
-  
+
     try {
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/users/location/${phone}`);
       console.log('✅ Response:', res.data);
-  
+
       if (res.data) {
         const { latitude, longitude, address } = res.data;
-  
+
         if (!isNaN(latitude) && !isNaN(longitude)) {
           setLocation({ lat: latitude, lng: longitude });
           setAddress(address || '❌ Address not found.');
@@ -47,7 +52,7 @@ function LocationFilter() {
       setLoading(false);
     }
   };
-  
+
   return (
     <div style={{ padding: '20px', textAlign: 'center' }}>
       <h2>🔎 Find Location</h2>
@@ -55,7 +60,7 @@ function LocationFilter() {
         type="text"
         placeholder="Enter Phone Number"
         value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        onChange={handlePhoneChange}
         style={{
           padding: '10px',
           width: '80%',
@@ -67,6 +72,7 @@ function LocationFilter() {
           outline: 'none',
         }}
         disabled={loading}
+        aria-label="Enter phone number to find location"
       />
       <button
         onClick={handleSearch}
@@ -83,6 +89,7 @@ function LocationFilter() {
           opacity: loading ? 0.7 : 1,
         }}
         disabled={loading}
+        aria-label="Search location by phone number"
       >
         {loading ? 'Searching...' : 'Search'}
       </button>

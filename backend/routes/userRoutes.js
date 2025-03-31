@@ -1,12 +1,12 @@
 import express from 'express';
-import { registerUser } from '../controllers/userController.js'; // Ensure .js extension is included
+import { registerUser, getLocationByPhoneNumber } from '../controllers/userController.js'; // Ensure both methods are imported
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('✅ User API is working!');
-});
-
-// Ensure POST method is used for registration
+// Route for registering a user
 router.post('/register', registerUser);
+
+// Route for fetching user location by phone number
+router.get('/location/:phoneNumber', getLocationByPhoneNumber); // Ensure correct endpoint
+
 export default router;
