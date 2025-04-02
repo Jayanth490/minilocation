@@ -37,6 +37,6 @@ export const getLocationFromCoords = async (lat, lon) => {
     } else {
       console.error('❌ Error message:', err.message);
     }
-    return 'Address not found';
+    
   }
 };
