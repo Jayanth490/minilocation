@@ -40,7 +40,7 @@ function LocationFilter() {
 
         if (!isNaN(latitude) && !isNaN(longitude)) {
           setLocation({ lat: latitude, lng: longitude });
-          setAddress(address || '❌ Address not found.');
+          setAddress(address);
         } else {
           setAddress('❌ Invalid location data received.');
         }

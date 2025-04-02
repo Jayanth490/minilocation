@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import axios from '../utils/axios'; // ✅ Import instance
+import axios from '../utils/axios'; //  Import instance
 import './RegisterForm.css';
 import { getLocationFromCoords } from '../utils/getLocationFromCoords';
 import MyMap from './MyMap';
