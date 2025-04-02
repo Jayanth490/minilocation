@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin: [
+    'https://minilocation-v4du.vercel.app/',
     'https://locationtrack-omega.vercel.app',  // Your frontend URL
     'http://localhost:3000',  // Local frontend URL for development
   ],
