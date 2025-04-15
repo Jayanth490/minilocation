@@ -5,7 +5,7 @@ export const getLocationFromCoords = async (lat, lng) => {
     console.log(`📍 Fetching address for: Latitude: ${lat}, Longitude: ${lng}`);
 
     // Ensure the API URL is available
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api'; // Fallback to local URL if not set
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://locationtrack-3inh.onrender.com/api'; // Fallback to local URL if not set
     const requestUrl = `${apiUrl}/location/reverse`;  // Full API URL
 
     // Log the full API URL for debugging

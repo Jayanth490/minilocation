@@ -8,6 +8,7 @@ const router = express.Router();
 // ✅ Use CORS with the correct origin
 app.use(cors({
   origin: [
+    'https://minilocation-v4du.vercel.app/',
     'https://locationtrack-omega.vercel.app',
     'http://localhost:3000',  // Ensure this is added
   ],
