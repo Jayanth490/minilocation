@@ -12,7 +12,8 @@ app.use(cors({
   origin: [
     'https://minilocation-v4du.vercel.app/',
     'https://locationtrack-omega.vercel.app',  // Your frontend URL
-    'http://localhost:3000',  // Local frontend URL for development
+    'http://localhost:3000',  
+    'https://minilocation-loc.vercel.app/'// Local frontend URL for development
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
