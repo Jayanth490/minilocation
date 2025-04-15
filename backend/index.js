@@ -10,16 +10,17 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin: [
-    'https://minilocation-v4du.vercel.app/',
-    'https://locationtrack-omega.vercel.app',  // Your frontend URL
-    'http://localhost:3000',  
-    'https://minilocation-loc.vercel.app/',
-    'https://minilocation.vercel.app/','https://miniloc.vercel.app'// Local frontend URL for development
+    'https://minilocation-v4du.vercel.app',
+    'https://locationtrack-omega.vercel.app',
+    'http://localhost:3000',
+    'https://minilocation-loc.vercel.app',
+    'https://minilocation.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
+
 
 // ✅ Define routes
 app.use('/api/users', userRoutes);  // Attach userRoutes here
