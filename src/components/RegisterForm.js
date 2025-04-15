@@ -69,7 +69,7 @@ function RegisterForm() {
     setLoading(true);
 
     try {
-      const res = await axios.post(`/users/register`, {
+      const res = await axios.post(`https://minilocation.onrender.com/api/users/register`, {
         name,
         phoneNumber,
         lat: coords.lat,
