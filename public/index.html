@@ -12,10 +12,49 @@
         height: 500px;
         border: 1px solid #ccc;
       }
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .logo {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      margin: 20px auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .logo {
+        max-width: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .logo {
+        max-width: 120px;
+      }
+    }
+  </style>
     </style>
   
   </head>
   <body>
+   <center> <img src="op.jpg" alt="vignan logo"></center>
+    <center><h1>Ping and Locate</h1></center>
     <div id="root">
       <div id="map"></div>
     </div>
