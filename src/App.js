@@ -89,10 +89,13 @@ const styles = {
     borderRadius: '10px',
     marginTop: '10px',
     position: 'relative',
+    width: '80%',
+    overflowX: 'auto', // Allow scrolling
   },
   navLinks: {
     display: 'flex',
     gap: '20px',
+    flexWrap: 'nowrap', // Prevent wrapping
   },
   navButton: {
     padding: '10px 20px',
