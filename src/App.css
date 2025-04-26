@@ -65,6 +65,7 @@ button:hover {
   border-radius: 8px;
   overflow: hidden;
 }/* Navbar */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -72,12 +73,11 @@ button:hover {
   padding: 10px;
   background: #4CAF50;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 100%;
   border-radius: 10px;
   margin-top: 10px;
   position: relative;
-  width: 100%;
-  overflow-x: auto; /* Allow scrolling on smaller screens */
+  overflow-x: auto; /* Allow scrolling on small screens */
 }
 
 .nav-links {
@@ -104,13 +104,14 @@ button:hover {
   display: none; /* Hidden by default */
 }
 
-/* Side Navigation Menu */
+/* Side Navigation Menu (For mobile) */
 .sideNav {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   background-color: #4CAF50;
+  width: 0;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -146,6 +147,7 @@ button:hover {
   .nav-links {
     display: none; /* Hide normal navbar on mobile */
   }
+
   .hamburger-btn {
     display: block; /* Show hamburger button on mobile */
   }
@@ -154,8 +156,10 @@ button:hover {
     width: 0; /* Side menu hidden by default */
   }
 
-  /* Allow scrolling in navbar on small devices */
   .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
     overflow-x: scroll;
     flex-wrap: nowrap;
   }
@@ -173,5 +177,10 @@ button:hover {
     width: 100%;
     padding: 10px;
     border-top: 1px solid #ddd;
+  }
+
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically */
+    gap: 10px;
   }
 }
