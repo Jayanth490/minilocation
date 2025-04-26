@@ -64,35 +64,114 @@ button:hover {
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
-}.navbar {
+}/* Navbar */
+.navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
   padding: 10px;
   background: #4CAF50;
-  margin: 10px auto 0 auto;
-  border-radius: 10px;
+  margin: 0 auto;
   max-width: 800px;
-  flex-wrap: nowrap; /* Default: no wrap */
+  border-radius: 10px;
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+  overflow-x: auto; /* Allow scrolling on smaller screens */
 }
 
-.navbar button {
+.nav-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping of nav items */
+}
+
+.navButton {
   padding: 10px 20px;
   color: white;
   background: #4CAF50;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  min-width: 100px;
-  font-size: 16px;
 }
 
-/* Mobile responsive (small screens) */
-@media (max-width: 600px) {
+.hamburger-btn {
+  font-size: 30px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+}
+
+/* Side Navigation Menu */
+.sideNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #4CAF50;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 9999;
+}
+
+.sideButton {
+  padding: 10px 20px;
+  color: white;
+  background: #4CAF50;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* Main content overlay */
+.overlay {
+  padding: 0;
+  min-height: calc(100vh - 80px);
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  margin-left: 0; /* Default to no margin */
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide normal navbar on mobile */
+  }
+  .hamburger-btn {
+    display: block; /* Show hamburger button on mobile */
+  }
+
+  .sideNav {
+    width: 0; /* Side menu hidden by default */
+  }
+
+  /* Allow scrolling in navbar on small devices */
   .navbar {
-    flex-wrap: wrap; /* Only wrap when screen small */
-    max-width: 90%;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    display: block; /* Stack navbar items in a column on very small screens */
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .navButton {
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #ddd;
   }
 }
