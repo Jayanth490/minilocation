@@ -120,7 +120,7 @@ const styles = {
     height: '100%',
     backgroundColor: '#4CAF50',
     overflowX: 'hidden',
-    transition: '0.5s',
+    transition: '0.3s ease-in-out',
     paddingTop: '60px',
     zIndex: '9999',
   },
@@ -142,7 +142,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    transition: '0.5s',
+    transition: '0.3s ease-in-out',
   },
   homeContainer: {
     width: '100%',
@@ -174,5 +174,18 @@ const styles = {
     textAlign: 'center',
   },
 };
+
+// Media Query to show hamburger menu in mobile view and slide-in effect
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+mediaQuery.addEventListener('change', (e) => {
+  if (e.matches) {
+    styles.hamburgerButton.display = 'block'; // Show hamburger button on mobile
+    styles.navLinks.display = 'none'; // Hide navbar links on mobile
+  } else {
+    styles.hamburgerButton.display = 'none'; // Hide hamburger button on desktop
+    styles.navLinks.display = 'flex'; // Show navbar links on desktop
+  }
+});
 
 export default App;
