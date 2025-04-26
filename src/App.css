@@ -317,17 +317,21 @@ body {
 
 /* Home Image */
 .homeContainer {
+  width: 100%;
+  height: calc(100vh - 80px); /* Full height minus navbar */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin: 0; /* Remove any extra margin */
+  padding: 0; /* Remove any extra padding */
 }
 
 .homeImage {
   width: 100%;
-  max-width: 1000px;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
+
 
 /* About Section */
 .aboutContainer {
@@ -350,6 +354,7 @@ body {
 @media (max-width: 768px) {
   .nav-links {
     gap: 10px;
+    align-items: center;
   }
 
   .navButton {
