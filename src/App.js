@@ -7,34 +7,21 @@ import webImage from './components/web.jpeg'; // ✅ Import your photo properly
 
 function App() {
   const [activeTab, setActiveTab] = useState('home'); // default is home page
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // state for sliding menu
 
   return (
     <div>
       {/* Navbar */}
-      <div className="navbar" style={styles.navbar}>
-        <div className="nav-links" style={styles.navLinks}>
-          <button onClick={() => setActiveTab('home')} style={styles.navButton}>Home</button>
-          <button onClick={() => setActiveTab('register')} style={styles.navButton}>Register</button>
-          <button onClick={() => setActiveTab('location')} style={styles.navButton}>Find Location</button>
-          <button onClick={() => setActiveTab('about')} style={styles.navButton}>About</button>
+      <div className="navbar">
+        <div className="nav-links">
+          <button onClick={() => setActiveTab('home')} className="navButton">Home</button>
+          <button onClick={() => setActiveTab('register')} className="navButton">Register</button>
+          <button onClick={() => setActiveTab('location')} className="navButton">Find Location</button>
+          <button onClick={() => setActiveTab('about')} className="navButton">About</button>
         </div>
-        {/* Hamburger Menu for mobile */}
-        <button className="hamburger-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} style={styles.hamburgerButton}>
-          ☰
-        </button>
-      </div>
-
-      {/* Side Navigation Menu (Slides in when isMenuOpen is true) */}
-      <div style={{ ...styles.sideNav, width: isMenuOpen ? '250px' : '0' }}>
-        <button onClick={() => setActiveTab('home')} style={styles.sideButton}>Home</button>
-        <button onClick={() => setActiveTab('register')} style={styles.sideButton}>Register</button>
-        <button onClick={() => setActiveTab('location')} style={styles.sideButton}>Find Location</button>
-        <button onClick={() => setActiveTab('about')} style={styles.sideButton}>About</button>
       </div>
 
       {/* Main content */}
-      <div className="overlay" style={{ ...styles.overlay, marginLeft: isMenuOpen ? '250px' : '0' }}>
+      <div className="overlay">
         {activeTab === 'home' && <HomePage />}
         {activeTab === 'register' && <RegisterForm />}
         {activeTab === 'location' && <LocationFilter />}
@@ -48,8 +35,8 @@ function App() {
 
 function HomePage() {
   return (
-    <div style={styles.homeContainer}>
-      <img src={webImage} alt="Welcome" style={styles.homeImage} />
+    <div className="homeContainer">
+      <img src={webImage} alt="Welcome" className="homeImage" />
     </div>
   );
 }
@@ -64,9 +51,9 @@ function AboutSection() {
   ];
 
   return (
-    <div style={styles.aboutContainer}>
+    <div className="aboutContainer">
       {team.map((member, index) => (
-        <div key={index} style={styles.card}>
+        <div key={index} className="card">
           <h2>{member.name}</h2>
           <p>Roll No: {member.roll}</p>
           <p>Phone: {member.phone}</p>
@@ -76,116 +63,5 @@ function AboutSection() {
     </div>
   );
 }
-
-const styles = {
-  navbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '10px',
-    background: '#4CAF50',
-    margin: '0 auto',
-    maxWidth: '800px',
-    borderRadius: '10px',
-    marginTop: '10px',
-    position: 'relative',
-    width: '80%',
-    overflowX: 'auto', // Allow scrolling
-  },
-  navLinks: {
-    display: 'flex',
-    gap: '20px',
-    flexWrap: 'nowrap', // Prevent wrapping
-  },
-  navButton: {
-    padding: '10px 20px',
-    color: 'white',
-    background: '#4CAF50',
-    border: 'none',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
-  hamburgerButton: {
-    fontSize: '30px',
-    color: 'white',
-    background: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    display: 'none', // Hidden by default
-  },
-  sideNav: {
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    height: '100%',
-    backgroundColor: '#4CAF50',
-    overflowX: 'hidden',
-    transition: '0.3s ease-in-out',
-    paddingTop: '60px',
-    zIndex: '9999',
-  },
-  sideButton: {
-    padding: '10px 20px',
-    color: 'white',
-    background: '#4CAF50',
-    border: 'none',
-    textAlign: 'center',
-    fontSize: '18px',
-    width: '100%',
-    borderBottom: '1px solid #ddd',
-    cursor: 'pointer',
-  },
-  overlay: {
-    padding: '0',
-    minHeight: 'calc(100vh - 80px)',
-    backgroundColor: '#f0f2f5',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    transition: '0.3s ease-in-out',
-  },
-  homeContainer: {
-    width: '100%',
-    height: 'calc(100vh - 80px)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: 'hidden',
-    marginTop: '38px',
-  },
-  homeImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
-  },
-  aboutContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: '20px',
-    marginTop: '20px',
-  },
-  card: {
-    backgroundColor: 'white',
-    padding: '20px',
-    borderRadius: '10px',
-    width: '250px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-    textAlign: 'center',
-  },
-};
-
-// Media Query to show hamburger menu in mobile view and slide-in effect
-const mediaQuery = window.matchMedia('(max-width: 768px)');
-
-mediaQuery.addEventListener('change', (e) => {
-  if (e.matches) {
-    styles.hamburgerButton.display = 'block'; // Show hamburger button on mobile
-    styles.navLinks.display = 'none'; // Hide navbar links on mobile
-  } else {
-    styles.hamburgerButton.display = 'none'; // Hide hamburger button on desktop
-    styles.navLinks.display = 'flex'; // Show navbar links on desktop
-  }
-});
 
 export default App;
