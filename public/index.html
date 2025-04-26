@@ -5,55 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone Tracker</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
     <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
       #map {
-        width: 100%; 
+        width: 100%;
         height: 500px;
         border: 1px solid #ccc;
       }
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-
-    .logo {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
-      margin: 20px auto;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
 
       .logo {
-        max-width: 150px;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin: 20px auto;
       }
-    }
 
-    @media (max-width: 480px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
       }
 
-      .logo {
-        max-width: 120px;
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+        .logo {
+          max-width: 150px;
+        }
       }
-    }
-  </style>
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.5rem;
+        }
+        .logo {
+          max-width: 120px;
+        }
+      }
     </style>
-  
   </head>
   <body>
-   <center> <img src="op.jpg" alt="vignan logo"></center>
+    <center><img src="op.jpg" alt="vignan logo" class="logo" /></center>
     <center><h1>Ping and Locate</h1></center>
     <div id="root">
       <div id="map"></div>
