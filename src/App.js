@@ -3,20 +3,27 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RegisterForm from './components/RegisterForm';
 import LocationFilter from './components/LocationFilter';
-import webImage from './components/web.jpeg'; 
-import './App.css'; // 👈 Import the external CSS
+import webImage from './components/web.jpeg'; // ✅ Import your photo properly
 
 function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTab] = useState('home'); // default is home page
 
   return (
     <div>
       {/* Navbar */}
-      <div className="navbar">
-        <button onClick={() => setActiveTab('home')}>Home</button>
-        <button onClick={() => setActiveTab('register')}>Register</button>
-        <button onClick={() => setActiveTab('location')}>Find Location</button>
-        <button onClick={() => setActiveTab('about')}>About</button>
+      <div className="navbar" style={styles.navbar}>
+        <button onClick={() => setActiveTab('home')} style={styles.button}>
+          Home
+        </button>
+        <button onClick={() => setActiveTab('register')} style={styles.button}>
+          Register
+        </button>
+        <button onClick={() => setActiveTab('location')} style={styles.button}>
+          Find Location
+        </button>
+        <button onClick={() => setActiveTab('about')} style={styles.button}>
+          About
+        </button>
       </div>
 
       {/* Main content */}
@@ -64,6 +71,29 @@ function AboutSection() {
 }
 
 const styles = {
+  navbar: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '20px',
+    padding: '10px',
+    background: '#4CAF50',
+    margin: '0 auto',
+    maxWidth: '800px',
+    borderRadius: '10px',
+    marginTop: '10px',
+    flexWrap: 'wrap', // ✅ make it responsive (important)
+  },
+  button: {
+    padding: '10px 20px',
+    color: 'white',
+    background: '#4CAF50',
+    border: '2px white',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontWeight: 'bold',
+    flexShrink: 0, // ✅ prevent buttons from shrinking
+  },
   overlay: {
     padding: '0',
     minHeight: 'calc(100vh - 80px)',
