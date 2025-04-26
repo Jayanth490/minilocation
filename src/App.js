@@ -7,27 +7,34 @@ import webImage from './components/web.jpeg'; // ✅ Import your photo properly
 
 function App() {
   const [activeTab, setActiveTab] = useState('home'); // default is home page
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // state for sliding menu
 
   return (
     <div>
       {/* Navbar */}
       <div className="navbar" style={styles.navbar}>
-        <button onClick={() => setActiveTab('home')} style={styles.button}>
-          Home
-        </button>
-        <button onClick={() => setActiveTab('register')} style={styles.button}>
-          Register
-        </button>
-        <button onClick={() => setActiveTab('location')} style={styles.button}>
-          Find Location
-        </button>
-        <button onClick={() => setActiveTab('about')} style={styles.button}>
-          About
+        <div className="nav-links" style={styles.navLinks}>
+          <button onClick={() => setActiveTab('home')} style={styles.navButton}>Home</button>
+          <button onClick={() => setActiveTab('register')} style={styles.navButton}>Register</button>
+          <button onClick={() => setActiveTab('location')} style={styles.navButton}>Find Location</button>
+          <button onClick={() => setActiveTab('about')} style={styles.navButton}>About</button>
+        </div>
+        {/* Hamburger Menu for mobile */}
+        <button className="hamburger-btn" onClick={() => setIsMenuOpen(!isMenuOpen)} style={styles.hamburgerButton}>
+          ☰
         </button>
       </div>
 
+      {/* Side Navigation Menu (Slides in when isMenuOpen is true) */}
+      <div style={{ ...styles.sideNav, width: isMenuOpen ? '250px' : '0' }}>
+        <button onClick={() => setActiveTab('home')} style={styles.sideButton}>Home</button>
+        <button onClick={() => setActiveTab('register')} style={styles.sideButton}>Register</button>
+        <button onClick={() => setActiveTab('location')} style={styles.sideButton}>Find Location</button>
+        <button onClick={() => setActiveTab('about')} style={styles.sideButton}>About</button>
+      </div>
+
       {/* Main content */}
-      <div className="overlay" style={styles.overlay}>
+      <div className="overlay" style={{ ...styles.overlay, marginLeft: isMenuOpen ? '250px' : '0' }}>
         {activeTab === 'home' && <HomePage />}
         {activeTab === 'register' && <RegisterForm />}
         {activeTab === 'location' && <LocationFilter />}
@@ -73,26 +80,57 @@ function AboutSection() {
 const styles = {
   navbar: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: '20px',
     padding: '10px',
     background: '#4CAF50',
     margin: '0 auto',
     maxWidth: '800px',
     borderRadius: '10px',
     marginTop: '10px',
-    flexWrap: 'wrap', // ✅ make it responsive (important)
+    position: 'relative',
   },
-  button: {
+  navLinks: {
+    display: 'flex',
+    gap: '20px',
+  },
+  navButton: {
     padding: '10px 20px',
     color: 'white',
     background: '#4CAF50',
-    border: '2px white',
-    borderRadius: '5px',
+    border: 'none',
     cursor: 'pointer',
     fontWeight: 'bold',
-    flexShrink: 0, // ✅ prevent buttons from shrinking
+  },
+  hamburgerButton: {
+    fontSize: '30px',
+    color: 'white',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'none', // Hidden by default
+  },
+  sideNav: {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    height: '100%',
+    backgroundColor: '#4CAF50',
+    overflowX: 'hidden',
+    transition: '0.5s',
+    paddingTop: '60px',
+    zIndex: '9999',
+  },
+  sideButton: {
+    padding: '10px 20px',
+    color: 'white',
+    background: '#4CAF50',
+    border: 'none',
+    textAlign: 'center',
+    fontSize: '18px',
+    width: '100%',
+    borderBottom: '1px solid #ddd',
+    cursor: 'pointer',
   },
   overlay: {
     padding: '0',
@@ -101,6 +139,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    transition: '0.5s',
   },
   homeContainer: {
     width: '100%',
