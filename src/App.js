@@ -3,27 +3,20 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RegisterForm from './components/RegisterForm';
 import LocationFilter from './components/LocationFilter';
-import webImage from './components/web.jpeg'; // ✅ Import your photo properly
+import webImage from './components/web.jpeg'; 
+import './App.css'; // 👈 Import the external CSS
 
 function App() {
-  const [activeTab, setActiveTab] = useState('home'); // default is home page
+  const [activeTab, setActiveTab] = useState('home');
 
   return (
     <div>
       {/* Navbar */}
-      <div className="navbar" style={styles.navbar}>
-        <button onClick={() => setActiveTab('home')} style={styles.button}>
-          Home
-        </button>
-        <button onClick={() => setActiveTab('register')} style={styles.button}>
-          Register
-        </button>
-        <button onClick={() => setActiveTab('location')} style={styles.button}>
-          Find Location
-        </button>
-        <button onClick={() => setActiveTab('about')} style={styles.button}>
-          About
-        </button>
+      <div className="navbar">
+        <button onClick={() => setActiveTab('home')}>Home</button>
+        <button onClick={() => setActiveTab('register')}>Register</button>
+        <button onClick={() => setActiveTab('location')}>Find Location</button>
+        <button onClick={() => setActiveTab('about')}>About</button>
       </div>
 
       {/* Main content */}
@@ -71,31 +64,9 @@ function AboutSection() {
 }
 
 const styles = {
-  navbar: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: '20px',
-    padding: '10px',
-    background: '#4CAF50',
-    margin: '0 auto', // Center the navbar
-    maxWidth: '800px', // Limit navbar width to look nice in center
-    borderRadius: '10px', // Optional: soft corner for navbar
-    marginTop: '10px',
-  
-  },
-  button: {
-    padding: '10px 20px',
-    color: 'white',
-    background: '#4CAF50',
-    border: '2px  white',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
   overlay: {
     padding: '0',
-    minHeight: 'calc(100vh - 80px)', // Adjust for navbar height
+    minHeight: 'calc(100vh - 80px)',
     backgroundColor: '#f0f2f5',
     display: 'flex',
     justifyContent: 'center',
@@ -103,11 +74,12 @@ const styles = {
   },
   homeContainer: {
     width: '100%',
-    height: 'calc(100vh - 80px)', // 100vh minus navbar
+    height: 'calc(100vh - 80px)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden',marginTop: '38px',
+    overflow: 'hidden',
+    marginTop: '38px',
   },
   homeImage: {
     width: '100%',
