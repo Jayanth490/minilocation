@@ -184,3 +184,184 @@ button:hover {
     gap: 10px;
   }
 }
+/* Hamburger icon styles */
+.hamburger-btn {
+  font-size: 30px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none; /* Hidden by default on larger screens */
+}
+
+.hamburger-btn:before {
+  content: "\2630"; /* Unicode character for hamburger icon (three horizontal lines) */
+  font-size: 30px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Side Navigation Menu (For mobile) */
+.sideNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #4CAF50;
+  width: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 9999;
+}
+
+.sideButton {
+  padding: 10px 20px;
+  color: white;
+  background: #4CAF50;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* Main content overlay */
+.overlay {
+  padding: 0;
+  min-height: calc(100vh - 80px);
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  margin-left: 0; /* Default to no margin */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide normal navbar on mobile */
+  }
+
+  .hamburger-btn {
+    display: block; /* Show hamburger button on mobile */
+  }
+
+  .sideNav {
+    width: 0; /* Default to hidden */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navButton {
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+/* Basic styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  background-color: #4CAF50;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navButton {
+  padding: 10px 20px;
+  color: white;
+  background: #4CAF50;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.navButton:hover {
+  background: #45a049;
+}
+
+/* Overlay */
+.overlay {
+  padding: 20px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+/* Home Image */
+.homeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.homeImage {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+/* About Section */
+.aboutContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 10px;
+  }
+
+  .navButton {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
