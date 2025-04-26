@@ -74,22 +74,28 @@ const styles = {
   navbar: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
     gap: '20px',
     padding: '10px',
     background: '#4CAF50',
+    margin: '0 auto', // Center the navbar
+    maxWidth: '800px', // Limit navbar width to look nice in center
+    borderRadius: '10px', // Optional: soft corner for navbar
+    marginTop: '10px',
+  
   },
   button: {
     padding: '10px 20px',
     color: 'white',
     background: '#4CAF50',
-    border: 'none',
+    border: '2px  white',
     borderRadius: '5px',
     cursor: 'pointer',
     fontWeight: 'bold',
   },
   overlay: {
-    padding: '0', // Remove padding to allow full-screen image
-    minHeight: 'calc(100vh - 60px)', // Adjust for navbar height
+    padding: '0',
+    minHeight: 'calc(100vh - 80px)', // Adjust for navbar height
     backgroundColor: '#f0f2f5',
     display: 'flex',
     justifyContent: 'center',
@@ -97,16 +103,16 @@ const styles = {
   },
   homeContainer: {
     width: '100%',
-    height: 'calc(100vh - 60px)', // 100vh minus navbar height
+    height: 'calc(100vh - 80px)', // 100vh minus navbar
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden',
+    overflow: 'hidden',marginTop: '38px',
   },
   homeImage: {
     width: '100%',
     height: '100%',
-    objectFit: 'contain', // Ensures the whole image fits without cutting off
+    objectFit: 'contain',
   },
   aboutContainer: {
     display: 'flex',
